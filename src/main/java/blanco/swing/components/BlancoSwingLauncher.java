@@ -14,8 +14,4 @@ public class BlancoSwingLauncher {
 			}
 		});
 	}
-
-	public static void main(final String[] args) {
-		new BlancoSwingLauncher().launchSwingApp();
-	}
 }
