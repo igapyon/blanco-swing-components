@@ -8,15 +8,35 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
+/**
+ * Button of Exit
+ * 
+ * @author igapyon@gmail.com
+ */
 public class BlancoExitButton extends JButton {
+
 	private static final long serialVersionUID = 1L;
 
-	public BlancoExitButton() {
+	protected String text = "Exit";
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	/**
+	 * Hook init()
+	 */
+	public void updateUI() {
+		super.updateUI();
 		init();
 	}
 
 	public void init() {
-		setText("Exit");
+		setText(getText());
 		addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				final Component cmpnt = (Component) event.getSource();
