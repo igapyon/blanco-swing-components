@@ -11,6 +11,10 @@ import javax.swing.SwingUtilities;
 public class BlancoExitButton extends JButton {
 	private static final long serialVersionUID = 1L;
 
+	public BlancoExitButton() {
+		init();
+	}
+
 	public void init() {
 		setText("Exit");
 		addActionListener(new ActionListener() {
