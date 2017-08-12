@@ -36,7 +36,7 @@ public class BlancoExitButton extends JButton {
 	}
 
 	public void init() {
-		setText(getText());
+		setText(text);
 		addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				final Component cmpnt = (Component) event.getSource();
