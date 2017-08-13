@@ -15,17 +15,20 @@ public class BlancoPerformButton extends JButton {
 
 	private static final long serialVersionUID = 1L;
 
-	protected String text = "Perform";
+	/**
+	 * Set default text.
+	 */
+	protected String defaultText = "Perform";
 
+	/**
+	 * Must not be null.
+	 */
 	@Override
 	public String getText() {
-		return text;
-	}
-
-	@Override
-	public void setText(String text) {
-		super.setText(text);
-		this.text = text;
+		if (super.getText() == null || super.getText().length() == 0) {
+			return defaultText;
+		}
+		return super.getText();
 	}
 
 	/**
@@ -38,7 +41,6 @@ public class BlancoPerformButton extends JButton {
 	}
 
 	public void init() {
-		setText(text);
 		addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent event) {
 				JOptionPane.showMessageDialog(null, "Do something.", "Perform",

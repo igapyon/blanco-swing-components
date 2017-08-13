@@ -2,15 +2,13 @@ package blanco.swing.components;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import blanco.swing.components.button.BlancoExitButton;
+import blanco.swing.components.button.BlancoPerformButton;
 
 public class BlancoSwingApp {
 	protected JFrame frame = null;
@@ -57,20 +55,10 @@ public class BlancoSwingApp {
 		final JPanel southPanel = new JPanel();
 
 		{
-			final JButton performButton = new JButton();
-			final BlancoExitButton exitButton = new BlancoExitButton();
+			final JButton performButton = new BlancoPerformButton();
+			final JButton exitButton = new BlancoExitButton();
 
-			{
-				performButton.setText("Perform");
-				southPanel.add(performButton);
-				performButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent event) {
-						JOptionPane.showMessageDialog(null, "Do something.", "Perform",
-								JOptionPane.OK_OPTION | JOptionPane.INFORMATION_MESSAGE);
-					}
-				});
-			}
-
+			southPanel.add(performButton);
 			southPanel.add(exitButton);
 		}
 
