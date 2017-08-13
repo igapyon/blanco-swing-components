@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
+
+import blanco.swing.components.MessageBox;
 
 /**
  * Button of Perform
@@ -41,10 +42,10 @@ public class BlancoPerformButton extends JButton {
 	}
 
 	public void init() {
+		final JButton btn = this;
 		addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent event) {
-				JOptionPane.showMessageDialog(null, "Do something.", "Perform",
-						JOptionPane.OK_OPTION | JOptionPane.INFORMATION_MESSAGE);
+				MessageBox.show(btn, "Do something.", "Perform");
 			}
 		});
 	}
