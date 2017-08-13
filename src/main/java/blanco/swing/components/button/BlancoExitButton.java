@@ -22,7 +22,7 @@ public class BlancoExitButton extends JButton {
 	/**
 	 * Set default text.
 	 */
-	protected String text = "Exit";
+	protected String defaultText = "Exit";
 
 	///////////////////////////////
 	// Constructor
@@ -38,7 +38,6 @@ public class BlancoExitButton extends JButton {
 	@ConstructorProperties({ "text" })
 	public BlancoExitButton(String text) {
 		super(text);
-		this.text = text;
 	}
 
 	public BlancoExitButton(Action a) {
@@ -47,7 +46,6 @@ public class BlancoExitButton extends JButton {
 
 	public BlancoExitButton(String text, Icon icon) {
 		super(text, icon);
-		this.text = text;
 	}
 
 	// Constructor
@@ -56,18 +54,15 @@ public class BlancoExitButton extends JButton {
 	///////////////////////////////
 	// Getter / Setter
 
+	/**
+	 * Must not be null.
+	 */
 	@Override
 	public String getText() {
 		if (super.getText() == null || super.getText().length() == 0) {
-			return text;
+			return defaultText;
 		}
 		return super.getText();
-	}
-
-	@Override
-	public void setText(String val) {
-		super.setText(val);
-		text = val;
 	}
 
 	// Getter / Setter
@@ -83,7 +78,7 @@ public class BlancoExitButton extends JButton {
 	}
 
 	public void init() {
-		setText(text);
+		setText(getText());
 		addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent event) {
 				final Component cmpnt = (Component) event.getSource();
