@@ -4,7 +4,10 @@ import java.awt.Component;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.ConstructorProperties;
 
+import javax.swing.Action;
+import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
@@ -14,21 +17,55 @@ import javax.swing.SwingUtilities;
  * @author igapyon@gmail.com
  */
 public class BlancoExitButton extends JButton {
-
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Set default text.
+	 */
 	protected String text = "Exit";
+
+	///////////////////////////////
+	// Constructor
+
+	public BlancoExitButton() {
+		super();
+	}
+
+	public BlancoExitButton(Icon icon) {
+		super(icon);
+	}
+
+	@ConstructorProperties({ "text" })
+	public BlancoExitButton(String text) {
+		super(text);
+		this.text = text;
+	}
+
+	public BlancoExitButton(Action a) {
+		super(a);
+	}
+
+	public BlancoExitButton(String text, Icon icon) {
+		super(text, icon);
+		this.text = text;
+	}
+
+	// Constructor
+	///////////////////////////////
+
+	///////////////////////////////
+	// Getter / Setter
 
 	@Override
 	public String getText() {
-		return text;
+		if (super.getText() == null || super.getText().length() == 0) {
+			return text;
+		}
+		return super.getText();
 	}
 
-	@Override
-	public void setText(String text) {
-		super.setText(text);
-		this.text = text;
-	}
+	// Getter / Setter
+	///////////////////////////////
 
 	/**
 	 * Hook init()
