@@ -62,7 +62,7 @@ public class BlancoSwingApp {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(final String title) {
 		this.title = title;
 	}
 
@@ -70,13 +70,17 @@ public class BlancoSwingApp {
 		return minimumSize;
 	}
 
-	public void setMinimumSize(Dimension minimumSize) {
+	public void setMinimumSize(final Dimension minimumSize) {
 		this.minimumSize = minimumSize;
 	}
 
 	public void init() {
 		getFrame().setMinimumSize(minimumSize);
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// GlassPane
+		getFrame().setGlassPane(new BlancoGlassPane());
+		getFrame().getGlassPane().setVisible(false);
 
 		internalInit();
 

@@ -37,7 +37,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
+import blanco.swing.components.BlancoSwingUtil;
 import blanco.swing.components.MessageBox;
 
 /**
@@ -78,7 +80,30 @@ public class BlancoPerformButton extends JButton {
 		final JButton btn = this;
 		addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent event) {
-				MessageBox.show(btn, "Do something.", "Perform");
+
+				final Thread t = new Thread(new Runnable() {
+					public void run() {
+						final JFrame frame = BlancoSwingUtil.getParentFrame(btn);
+						if (frame == null) {
+							return;
+						}
+						frame.getGlassPane().setVisible(true);
+						try {
+
+							Thread.sleep(5000);
+
+							MessageBox.show(btn, "処理終了");
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						} finally {
+							frame.getGlassPane().setVisible(false);
+						}
+					}
+				});
+
+				t.start();
+
+				// MessageBox.show(btn, "Do something.", "Perform");
 			}
 		});
 	}
