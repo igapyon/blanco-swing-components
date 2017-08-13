@@ -64,6 +64,12 @@ public class BlancoExitButton extends JButton {
 		return super.getText();
 	}
 
+	@Override
+	public void setText(String val) {
+		super.setText(val);
+		text = val;
+	}
+
 	// Getter / Setter
 	///////////////////////////////
 
