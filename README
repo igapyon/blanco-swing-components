@@ -1,0 +1,12 @@
+
+開発者自身のメモ。
+
+あと、作ってみたいもの。
+- BlancoMessageBox#show
+- WaitCursorのための仕組み
+- メニュー
+- ProgressDialog タイトル、メッセージ、進捗
+- グループボックス
+- BlancoExitButton の beforeExitの実装。
+- 簡単テーブル
+
