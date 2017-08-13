@@ -19,17 +19,21 @@ public class BlancoExitButton extends JButton {
 
 	protected String text = "Exit";
 
+	@Override
 	public String getText() {
 		return text;
 	}
 
+	@Override
 	public void setText(String text) {
+		super.setText(text);
 		this.text = text;
 	}
 
 	/**
 	 * Hook init()
 	 */
+	@Override
 	public void updateUI() {
 		super.updateUI();
 		init();
@@ -38,7 +42,7 @@ public class BlancoExitButton extends JButton {
 	public void init() {
 		setText(text);
 		addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
+			public void actionPerformed(final ActionEvent event) {
 				final Component cmpnt = (Component) event.getSource();
 				final Window wndw = SwingUtilities.getWindowAncestor(cmpnt);
 				wndw.dispose();
